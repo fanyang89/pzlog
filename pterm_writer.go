@@ -91,7 +91,7 @@ func NewPtermWriter(options ...func(*PtermWriter)) *PtermWriter {
 		},
 	}
 
-	tmpl := `{{ .Timestamp }} {{ .Level }}  {{ .Message }}
+	tmpl := `{{ .Timestamp }} [{{ .Level }}] {{ .Message }}
 {{- range $i, $field := .Fields }}
 {{ space (totalLength 1 $.Timestamp $.Level) }}{{if (last $i $.Fields )}}└{{else}}├{{ end }} {{ .Key }}: {{ .Val }}
 {{- end }}
